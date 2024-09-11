@@ -2,9 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
 
 const songs = [
+  { title: 'Jaana ve', src: '/Jaana-Ve.mp3' },
   { title: 'Malang-Unleash', src: '/Malang-Unleash.mp3' },
   { title: 'Ishq wala', src: '/Ishq-Wala.mp3' },
-  { title: 'Janna ve', src: '/Janna-Ve.mp3' },
 ];
 
 const imageUrls = [
@@ -24,6 +24,8 @@ function App() {
   useEffect(() => {
     if (isPlaying) {
       audioRef.current.play();
+    } else {
+      audioRef.current.pause();
     }
   }, [currentSongIndex, isPlaying]);
 
@@ -36,11 +38,6 @@ function App() {
   }, []);
 
   const togglePlay = () => {
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play();
-    }
     setIsPlaying(!isPlaying);
   };
 
@@ -60,12 +57,13 @@ function App() {
     <>
       <div className="romantic-background"></div>
       <div className="twinkling-stars"></div>
+      <div className="glowing-orbs"></div>
 
       <div className="container">
         <div className="image-showcase">
           <img src={imageUrls[currentImageIndex]} alt="Showcase" />
         </div>
-        <div className="music-player">
+        <div className={`music-player ${isPlaying ? 'playing' : ''}`}>
           <h2>{songs[currentSongIndex].title}</h2>
           <audio
             ref={audioRef}
