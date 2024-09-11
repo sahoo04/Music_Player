@@ -1,0 +1,128 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #000; /* Fallback */
+}
+
+/* Romantic gradient background */
+.romantic-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ff66b3, #ffccff, #cc66ff, #6633ff, #ff6699);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+  z-index: -1;
+  opacity: 0.8; /* Added opacity for better visibility */
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Twinkling star effect */
+.twinkling-stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent url('https://i.imgur.com/5vnyA54.png') repeat top center;
+  z-index: -1;
+  opacity: 0.8;
+  background-size: 10% 10%; /* Adjust size if needed */
+  animation: twinkle 200s linear infinite;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 50px; /* Adjust the gap as needed */
+}
+
+.image-showcase {
+  width: 350px; /* Increased width */
+  height: 350px; /* Increased height */
+  background-color: #444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative; /* Ensure proper positioning */
+}
+
+.image-showcase img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.music-player {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #1f1f1f;
+  padding: 40px;
+  border-radius: 50%;
+  width: 450px;
+  height: 450px;
+  box-shadow: 0px 0px 50px rgba(255, 255, 255, 0.3);
+  text-align: center;
+  transition: transform 0.3s ease;
+  position: relative; /* Ensure proper positioning */
+}
+
+.music-player:hover {
+  transform: scale(1.05);
+}
+
+.controls {
+  margin-top: 30px;
+}
+
+button {
+  background-color: #282828;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 15px;
+  margin: 0 10px;
+  cursor: pointer;
+  font-size: 24px;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #555;
+  transform: scale(1.1);
+}
+
+button:active {
+  transform: scale(0.95);
+}
